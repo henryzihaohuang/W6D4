@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
     def create
         users = User.new(user_params)
-        if user.save
+        if users.save
             render json: users
         else
             render json: users.errors.full_messages, status: :unprocessable_entity
@@ -38,9 +38,10 @@ class UsersController < ApplicationController
         end
     end
 
+private
     def user_params
         # require(:top_level_key)
         # permit(:nested, :keys, :we, :permit)
-        params.require(:user).permit(:body, :author_id)
+        params.require(:users).permit(:username)
     end
 end

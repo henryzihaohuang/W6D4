@@ -1,7 +1,7 @@
 class Artwork < ApplicationRecord
     validates :title, presence: true, uniqueness: { scope: :artist_id, message: "an artist should only have unique titles"}
 
-    validates :artist_id, presence: true, uniqueness: true
+    validates :artist_id, presence: true
     
 
     belongs_to :artist,
